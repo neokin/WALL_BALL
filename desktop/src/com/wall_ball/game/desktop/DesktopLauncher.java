@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		config.height = 480;
 		config.width = 800;
 		config.title = "WallBall";
+
 		new LwjglApplication(new WALL_BALL(), config);
 	}
 }

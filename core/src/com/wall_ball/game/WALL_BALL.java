@@ -1,7 +1,9 @@
 package com.wall_ball.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
@@ -14,9 +16,13 @@ import com.badlogic.gdx.math.Vector3;
 //import static com.badlogic.gdx.math.MathUtils.round;
 
 public class WALL_BALL extends ApplicationAdapter {
+
 	SpriteBatch batch;
 	OrthographicCamera camera;
 
+	static float x0;
+	int counter;
+	static float y0;
 	Texture ball_img;
 	Texture longhorizontal_img, longvertical_img, shorthorizontal_img, red_img;
 	Sound snd;
@@ -28,7 +34,7 @@ public class WALL_BALL extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 
-
+		counter = 1;
 		snd = Gdx.audio.newSound(Gdx.files.internal("congrat.mp3"));
 		//msc = Gdx.audio.newMusic(Gdx.files.internal("main.mp3"));
 
@@ -106,13 +112,32 @@ public class WALL_BALL extends ApplicationAdapter {
 		batch.end();
 
 
-	   if(Gdx.input.isTouched()) {
-			newPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-		   camera.unproject(newPos);
-		   ball_rect.x = newPos.x-30;
-		   ball_rect.y = newPos.y;
 
-		}
+
+
+
+		//newPos.set(x, y, 0);
+		//camera.unproject(newPos);
+		float x = Gdx.input.getPitch();
+		//float y = Gdx.input.getAzimuth();
+		float y = Gdx.input.getRoll();
+		//if(counter%12 == 0) {
+			//if (Math.abs(y - ball_rect.y) >= 0 || Math.abs(x - ball_rect.x) >= 0) {
+				if (x < 0) {
+					ball_rect.x = (ball_rect.x + 3);
+				} else ball_rect.x = (ball_rect.x - 3);
+				if (y >-40) {
+					ball_rect.y = (ball_rect.y + 3);
+				} else ball_rect.y = (ball_rect.y - 3);
+
+				newPos.set(ball_rect.x, ball_rect.y, 0);
+				camera.unproject(newPos);
+
+			System.out.println("x = " + x);
+			System.out.println("y = " + y);
+
+		//}
+
 
 
 		if(ball_rect.x < 40) ball_rect.x = 40;
@@ -126,9 +151,10 @@ public class WALL_BALL extends ApplicationAdapter {
 
 
 		else if (ball_rect.y > 480 - 60 - 40) {
-			snd.play();
+			//snd.play();
 
 		}
+		counter = counter + 1;
 
 	}
 	
