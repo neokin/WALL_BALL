@@ -15,13 +15,13 @@ import com.badlogic.gdx.math.Vector3;
 
 //import static com.badlogic.gdx.math.MathUtils.round;
 
-public class WALL_BALL extends ApplicationAdapter {
+public class WallBall extends ApplicationAdapter {
 
 	SpriteBatch batch;
 	OrthographicCamera camera;
 
 	static float x0;
-	int counter;
+	//int counter;
 	static float y0;
 	Texture ball_img;
 	Texture longhorizontal_img, longvertical_img, shorthorizontal_img, red_img;
@@ -34,7 +34,7 @@ public class WALL_BALL extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 
-		counter = 1;
+
 		snd = Gdx.audio.newSound(Gdx.files.internal("congrat.mp3"));
 		//msc = Gdx.audio.newMusic(Gdx.files.internal("main.mp3"));
 
@@ -133,8 +133,8 @@ public class WALL_BALL extends ApplicationAdapter {
 				newPos.set(ball_rect.x, ball_rect.y, 0);
 				camera.unproject(newPos);
 
-			System.out.println("x = " + x);
-			System.out.println("y = " + y);
+			//System.out.println("x = " + x);
+			//System.out.println("y = " + y);
 
 		//}
 
@@ -154,7 +154,7 @@ public class WALL_BALL extends ApplicationAdapter {
 			//snd.play();
 
 		}
-		counter = counter + 1;
+		//counter = counter + 1;
 
 	}
 	
