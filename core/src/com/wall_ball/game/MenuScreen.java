@@ -41,7 +41,8 @@ public class MenuScreen implements Screen {
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
-            game.setScreen(new WallBall(game));
+            game.setScreen(game.wb);
+
             dispose();
         }
 
@@ -69,6 +70,7 @@ public class MenuScreen implements Screen {
 
     @Override
     public void dispose() {
+        //gameimg.dispose();
 
     }
 }

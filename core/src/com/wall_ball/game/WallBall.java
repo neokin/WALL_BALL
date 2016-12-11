@@ -3,6 +3,7 @@ package com.wall_ball.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
@@ -28,7 +29,7 @@ public class WallBall implements Screen {
     int counter = 0;
 
     Texture ball_img;
-    Texture lcomp;
+    //Texture lcomp;
     Texture ring_img;
 
     Texture longhorizontal_img, longvertical_img, shorthorizontal_img, red_img;
@@ -45,7 +46,7 @@ public class WallBall implements Screen {
 
         snd = Gdx.audio.newSound(Gdx.files.internal("kick.wav"));
         //msc = Gdx.audio.newMusic(Gdx.files.internal("main.mp3"));
-        lcomp = new Texture("lcomp.png");
+        //lcomp = new Texture("lcomp.png");
         ring_img = new Texture("ring.png");
         ball_img = new Texture((Gdx.files.internal("ball.png")));
         longhorizontal_img = new Texture(Gdx.files.internal("lh.png"));
@@ -110,11 +111,27 @@ public class WallBall implements Screen {
         float y = Gdx.input.getRoll();
 
         if (x < 0) {
-            ball_rect.x = (ball_rect.x + 2.8f);
-        } else ball_rect.x = (ball_rect.x - 2.8f);
+            //ball_rect.x = (ball_rect.x + 2.8f);
+            ball_rect.x += Gdx.graphics.getDeltaTime() * 300;
+        } else {
+            //ball_rect.x = (ball_rect.x - 2.8f);
+            ball_rect.x -= Gdx.graphics.getDeltaTime() * 300;
+        }
+
         if (y > -40) {
-            ball_rect.y = (ball_rect.y + 2.8f);
-        } else ball_rect.y = (ball_rect.y - 2.8f);
+            //ball_rect.y = (ball_rect.y + 2.8f);
+            ball_rect.y += Gdx.graphics.getDeltaTime() * 300;
+        } else {
+            ball_rect.y -= Gdx.graphics.getDeltaTime() * 300;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+            ball_rect.x -= 200 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+            ball_rect.x += 600 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) ball_rect.y += 200 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+            ball_rect.y -= 600 * Gdx.graphics.getDeltaTime();
 
         //newPos.set(ball_rect.x, ball_rect.y, 0);
         //camera.unproject(newPos);
@@ -126,24 +143,28 @@ public class WallBall implements Screen {
         if (ball_rect.x < black_r.x - black_r.width / 2 || ball_rect.x > black_r.x + black_r.width / 2) {
             if (ball_rect.y > 384) ball_rect.y = 384;
         } else if (ball_rect.y > 384) {
+
+
             //snd.play();
+            ball_rect.x = MathUtils.random(80, 700);
+            ball_rect.y = 0;
+           game.setScreen(game.rs);
 
-            camera.update();
-            // batch.begin();
-            //batch.draw(lcomp, 0, 0);
-            //batch.end();
-
-
+            dispose();
 
         }
-        if(ball_rect.overlaps(ring_r)) {
+        if(ring_r.overlaps(ball_rect)) {
             snd.play();
             ring_r.x = MathUtils.random(80, 700);
             ring_r.y = MathUtils.random(80, 400);
             counter++;
-            snd.play();
 
         }
+
+/*        if(Gdx.input.isTouched()){
+            pause();
+            dispose();
+        }*/
         //counter = counter + 1;
 
     }
@@ -156,6 +177,8 @@ public class WallBall implements Screen {
     @Override
     public void pause() {
 
+        //game.setScreen(game.ps);
+       // dispose();
     }
 
     @Override
@@ -170,7 +193,8 @@ public class WallBall implements Screen {
 
     @Override
     public void dispose() {
-        batch.dispose();
+     //   game.wb.dispose();
+/*        batch.dispose();
 
         snd.dispose();
 
@@ -178,7 +202,7 @@ public class WallBall implements Screen {
         shorthorizontal_img.dispose();
         longvertical_img.dispose();
         longhorizontal_img.dispose();
-        ball_img.dispose();
+        ball_img.dispose();*/
 
 
     }
