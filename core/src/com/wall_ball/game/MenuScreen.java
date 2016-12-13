@@ -12,7 +12,7 @@ public class MenuScreen implements Screen {
     final Ball game;
     Texture gameimg;
     OrthographicCamera camera;
-    //float d = 4f;
+
 
     public MenuScreen(Ball game) {
         this.game = game;
@@ -28,7 +28,7 @@ public class MenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        //Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -71,7 +71,7 @@ public class MenuScreen implements Screen {
 
     @Override
     public void dispose() {
-        //gameimg.dispose();
+
 
     }
 }

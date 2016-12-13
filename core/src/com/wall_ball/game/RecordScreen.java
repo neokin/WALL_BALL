@@ -14,7 +14,7 @@ public class RecordScreen implements Screen {
     String s, username;
     OrthographicCamera camera;
     int i;
-    // float d = 4f;
+
     Array<String> records = new Array<String>();
 
     public RecordScreen(Ball game) {
@@ -22,7 +22,7 @@ public class RecordScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
         recimg = new Texture(Gdx.files.internal("records2.png"));
-        // i = 320;
+
     }
 
     @Override
@@ -33,7 +33,7 @@ public class RecordScreen implements Screen {
     @Override
     public void render(float delta) {
         i = 380;
-         //this.resume();
+
 
         game.setScreen(game.rs);
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -51,24 +51,25 @@ public class RecordScreen implements Screen {
             username = game.ts.text;
             s = username + " : " + game.wb.counter;
             records.add(s);
-            //game.wb.i -= 20;
+
+
             game.ts.notparsed = false;
         }
 
         for (String record : records) {
-            game.font.draw(game.batch, record, 400, i);
+            game.font.draw(game.batch, record, 300, i);
             i-=20;
         }
 
 
-        // game.setScreen(game.rs);
+
 
         game.batch.end();
-        //else game.setScreen(game.rs);
+
         if (Gdx.input.isTouched()) {
 
             game.setScreen(game.wb);
-            //game.wb.anim = true;
+
 
         }
 

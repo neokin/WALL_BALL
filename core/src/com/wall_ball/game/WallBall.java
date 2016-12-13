@@ -5,7 +5,6 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
@@ -23,12 +22,11 @@ public class WallBall implements Screen {
     SpriteBatch batch;
     OrthographicCamera camera;
 
-    private boolean isPlaying = true;
+
 
     int counter = 0;
 
-    //int i = 320;
-    boolean anim = true;
+
     Texture ball_img;
     Texture gameimg;
 
@@ -36,8 +34,6 @@ public class WallBall implements Screen {
 
     Texture longhorizontal_img, longvertical_img, shorthorizontal_img, red_img;
     Sound snd;
-    Music msc;
-    Vector3 newPos = new Vector3();
 
     Rectangle ball_rect, black_r, ring_r;
 
@@ -86,10 +82,6 @@ public class WallBall implements Screen {
     @Override
     public void render(float delta) {
 
-
-
-
-            //Gdx.gl.glClearColor(0, 0, 0.3f, 1);
             Gdx.gl.glClearColor(0, 0, 0, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 

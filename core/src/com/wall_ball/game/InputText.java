@@ -14,7 +14,7 @@ public class InputText extends ApplicationAdapter implements TextInputListener {
     String text;
     boolean notparsed = false;
     boolean notcanceled = false;
-    //boolean logged = false;
+
 
     @Override
     public void create () {
@@ -34,26 +34,16 @@ public class InputText extends ApplicationAdapter implements TextInputListener {
 
                     this.text = text;
         notcanceled = true;
-        //Gdx.app.log("text", text);
+
     }
 
     @Override
     public void canceled() {
-        //text = "canceled";
-        //Gdx.app.log("text", text);
+
         notcanceled = false;
         game.setScreen(game.wb);
 
 
     }
-/*  public boolean Logged()
-  {
-      return logged;
-  }*/
-/*    public void callText(){
 
-
-
-        //return text;
-    }*/
 }
