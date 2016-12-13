@@ -14,6 +14,7 @@ public class RecordScreen implements Screen {
     String s, username;
     OrthographicCamera camera;
 
+   // float d = 4f;
     Array<String> records  = new Array<String>();
     public RecordScreen(Ball game) {
         this.game = game;
@@ -29,40 +30,37 @@ public class RecordScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+        if(game.ts.notparsed && game.ts.notcanceled) {
+            // this.resume();
+            Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        camera.update();
-        game.batch.setProjectionMatrix(camera.combined);
-        //game.ts.getText();
-        game.batch.begin();
-        game.batch.draw(recimg, 0, 320);
+            camera.update();
+            game.batch.setProjectionMatrix(camera.combined);
 
-        if (username != null) {
-            s = username + ", your record is " + game.wb.counter;
+            game.batch.begin();
+            game.batch.draw(recimg, 0, 320);
+
+            username = game.ts.text;
+            s = username + " : " + game.wb.counter;
             records.add(s);
-            game.font.draw(game.batch, s, 350, 300);
-        }
-
-/*        int i = 300;
-
+            //records.
+            int i = 300;
             for (String record : records) {
-                if(record != null){
-                    game.font.draw(game.batch, record, 350, i);
-                }
-
-
-
+                game.font.draw(game.batch, record, 350, i);
                 i -= 20;
-            }*/
+            }
 
-        game.batch.end();
-        if (Gdx.input.isTouched()) {
-
-            game.setScreen(game.wb);
-
+            game.batch.end();
+            game.ts.notparsed = false;
         }
+            if (Gdx.input.isTouched()) {
+
+                game.setScreen(game.wb);
+
+            }
+
     }
 
     @Override

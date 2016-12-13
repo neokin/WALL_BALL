@@ -12,12 +12,14 @@ import com.badlogic.gdx.Input.TextInputListener;
 public class InputText extends ApplicationAdapter implements TextInputListener {
     final Ball game;
     String text;
+    boolean notparsed;
+    boolean notcanceled;
     //boolean logged = false;
 
     @Override
     public void create () {
         Gdx.input.getTextInput(this, "Push your record at record table", "", "Enter your name");
-
+        notparsed = true;
     }
     public InputText(Ball game) {
 
@@ -29,15 +31,19 @@ public class InputText extends ApplicationAdapter implements TextInputListener {
 
     @Override
     public void input(String text) {
+
                     this.text = text;
-        Gdx.app.log("text", text);
+        notcanceled = true;
+        //Gdx.app.log("text", text);
     }
 
     @Override
     public void canceled() {
         //text = "canceled";
-        Gdx.app.log("text", text);
+        //Gdx.app.log("text", text);
+        notcanceled = false;
         game.setScreen(game.wb);
+
 
     }
 /*  public boolean Logged()

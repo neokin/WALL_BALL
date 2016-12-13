@@ -12,6 +12,7 @@ public class MenuScreen implements Screen {
     final Ball game;
     Texture gameimg;
     OrthographicCamera camera;
+    //float d = 4f;
 
     public MenuScreen(Ball game) {
         this.game = game;
