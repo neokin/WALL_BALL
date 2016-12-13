@@ -27,7 +27,7 @@ public class WallBall implements Screen {
 
 
     int counter = 0;
-    String username;
+    //String username;
     Texture ball_img;
     boolean gotorecs;
     //Texture lcomp;
@@ -145,13 +145,18 @@ public class WallBall implements Screen {
             if (ball_rect.y > 384) ball_rect.y = 384;
         } else if (ball_rect.y > 384) {
 
-
+            game.ts =  new InputText(game);
             //snd.play();
             ball_rect.x = MathUtils.random(80, 700);
             ball_rect.y = 0;
             game.setScreen(game.rs);
-           username = game.ts.getText();
 
+                game.ts.create();
+
+            //ball_rect.x = MathUtils.random(80, 700);
+            //ball_rect.y = 0;
+
+                //game.ts.canceled = false;
 /*            if(game.ts.canceled == false) {
                 game.setScreen(game.rs);
 

@@ -20,7 +20,7 @@ public class Ball extends Game {
         batch = new SpriteBatch();
 
         font = new BitmapFont();
-        ts = new InputText(this);
+        //ts = new InputText(this);
         ms = new MenuScreen(this);
         wb = new WallBall(this);
         rs = new RecordScreen(this);
