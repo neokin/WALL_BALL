@@ -27,8 +27,9 @@ public class WallBall implements Screen {
 
 
     int counter = 0;
-
+    String username;
     Texture ball_img;
+    boolean gotorecs;
     //Texture lcomp;
     Texture ring_img;
 
@@ -125,12 +126,12 @@ public class WallBall implements Screen {
             ball_rect.y -= Gdx.graphics.getDeltaTime() * 300;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+        if (Gdx.input.isKeyPressed(Input.Keys.A))
             ball_rect.x -= 200 * Gdx.graphics.getDeltaTime();
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        if (Gdx.input.isKeyPressed(Input.Keys.D))
             ball_rect.x += 600 * Gdx.graphics.getDeltaTime();
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) ball_rect.y += 200 * Gdx.graphics.getDeltaTime();
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) ball_rect.y += 200 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.S))
             ball_rect.y -= 600 * Gdx.graphics.getDeltaTime();
 
         //newPos.set(ball_rect.x, ball_rect.y, 0);
@@ -148,7 +149,15 @@ public class WallBall implements Screen {
             //snd.play();
             ball_rect.x = MathUtils.random(80, 700);
             ball_rect.y = 0;
-           game.setScreen(game.rs);
+            game.setScreen(game.rs);
+           username = game.ts.getText();
+
+/*            if(game.ts.canceled == false) {
+                game.setScreen(game.rs);
+
+            }*/
+
+
 
             dispose();
 

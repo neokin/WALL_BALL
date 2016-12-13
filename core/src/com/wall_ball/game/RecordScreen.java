@@ -5,15 +5,16 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Array;
 
-/**
- * Created by kaliuser on 11.12.16.
- */
 
 public class RecordScreen implements Screen {
     final Ball game;
     Texture recimg;
+    String s, username;
     OrthographicCamera camera;
+
+    Array<String> records  = new Array<String>();
     public RecordScreen(Ball game) {
         this.game = game;
         camera = new OrthographicCamera();
@@ -34,16 +35,33 @@ public class RecordScreen implements Screen {
 
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
+        //game.ts.getText();
         game.batch.begin();
         game.batch.draw(recimg, 0, 320);
-        //game.font.setColor(0, 1, 0, 10);
-        //game.font.draw(game.batch, "Just touch the screen", 350, 255);
+
+        if (username != null) {
+            s = username + ", your record is " + game.wb.counter;
+            records.add(s);
+            game.font.draw(game.batch, s, 350, 300);
+        }
+
+/*        int i = 300;
+
+            for (String record : records) {
+                if(record != null){
+                    game.font.draw(game.batch, record, 350, i);
+                }
+
+
+
+                i -= 20;
+            }*/
+
         game.batch.end();
         if (Gdx.input.isTouched()) {
-           // game.ms.dispose();
-           // game.ms = new MenuScreen(game.ms.game);
-            game.setScreen(game.ms);
-           // dispose();
+
+            game.setScreen(game.wb);
+
         }
     }
 

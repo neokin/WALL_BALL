@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Dec 11 19:23:50 MSK 2016
+#Sun Dec 11 19:58:32 MSK 2016
 25.file=/home/kaliuser/Документы/app/WallBall/android/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar/com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl
 25.base=/home/kaliuser/Документы/app/WallBall/android/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar
 22.set=NATIVE_RESOURCE
