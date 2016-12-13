@@ -33,15 +33,15 @@ public class RecordScreen implements Screen {
     @Override
     public void render(float delta) {
         i = 380;
-        // this.resume();
+         //this.resume();
 
-        //game.setScreen(game.rs);
-        //Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+        game.setScreen(game.rs);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
 
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        //camera.update();
-        //game.batch.setProjectionMatrix(camera.combined);
+        camera.update();
+        game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
         game.batch.draw(recimg, 0, 320);
