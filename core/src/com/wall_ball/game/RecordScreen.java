@@ -13,15 +13,16 @@ public class RecordScreen implements Screen {
     Texture recimg;
     String s, username;
     OrthographicCamera camera;
-    //int i;
-   // float d = 4f;
-    Array<String> records  = new Array<String>();
+    int i;
+    // float d = 4f;
+    Array<String> records = new Array<String>();
+
     public RecordScreen(Ball game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
         recimg = new Texture(Gdx.files.internal("records2.png"));
-       // i = 320;
+        // i = 320;
     }
 
     @Override
@@ -31,23 +32,22 @@ public class RecordScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        i = 380;
+        // this.resume();
 
-            // this.resume();
+        //game.setScreen(game.rs);
+        //Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 
-            //game.setScreen(game.rs);
-            //Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-            //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //camera.update();
+        //game.batch.setProjectionMatrix(camera.combined);
 
-            //camera.update();
-            //game.batch.setProjectionMatrix(camera.combined);
-
-            game.batch.begin();
-            game.batch.draw(recimg, 0, 320);
+        game.batch.begin();
+        game.batch.draw(recimg, 0, 320);
 
 
-
-        if(game.ts.notparsed && game.ts.notcanceled) {
+        if (game.ts.notparsed && game.ts.notcanceled) {
             username = game.ts.text;
             s = username + " : " + game.wb.counter;
             records.add(s);
@@ -55,23 +55,22 @@ public class RecordScreen implements Screen {
             game.ts.notparsed = false;
         }
 
-            for (String record : records) {
-                game.font.draw(game.batch, record, 350, 320);
+        for (String record : records) {
+            game.font.draw(game.batch, record, 400, i);
+            i-=20;
+        }
 
-            }
 
-
-
-           // game.setScreen(game.rs);
+        // game.setScreen(game.rs);
 
         game.batch.end();
         //else game.setScreen(game.rs);
-            if (Gdx.input.isTouched()) {
+        if (Gdx.input.isTouched()) {
 
-                game.setScreen(game.wb);
-                //game.wb.anim = true;
+            game.setScreen(game.wb);
+            //game.wb.anim = true;
 
-            }
+        }
 
     }
 

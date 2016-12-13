@@ -149,7 +149,7 @@ public class WallBall implements Screen {
             } else if (ball_rect.y > 384) {
 
                 game.ts = new InputText(game);
-
+                Gdx.app.log("i = ", Integer.toString(game.rs.i));
                 ball_rect.x = MathUtils.random(80, 700);
                 ball_rect.y = 0;
                 game.setScreen(game.rs);
