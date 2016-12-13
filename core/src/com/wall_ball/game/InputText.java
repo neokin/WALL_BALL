@@ -12,8 +12,8 @@ import com.badlogic.gdx.Input.TextInputListener;
 public class InputText extends ApplicationAdapter implements TextInputListener {
     final Ball game;
     String text;
-    boolean notparsed;
-    boolean notcanceled;
+    boolean notparsed = false;
+    boolean notcanceled = false;
     //boolean logged = false;
 
     @Override
