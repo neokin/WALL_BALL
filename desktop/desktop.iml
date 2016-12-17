@@ -45,6 +45,8 @@
     <orderEntry type="library" exported="" name="jinput-platform-2.0.5-natives-linux" level="project" />
     <orderEntry type="library" exported="" name="jinput-platform-2.0.5-natives-windows" level="project" />
     <orderEntry type="library" exported="" name="jinput-platform-2.0.5-natives-osx" level="project" />
-    <orderEntry type="library" exported="" name="desktop.desktop-1.0" level="project" />
+    <orderEntry type="library" exported="" name="gdx-sqlite" level="project" />
+    <orderEntry type="library" exported="" name="gdx-sqlite-desktop" level="project" />
+    <orderEntry type="library" exported="" name="sqlite-jdbc-3.7.2" level="project" />
   </component>
 </module>

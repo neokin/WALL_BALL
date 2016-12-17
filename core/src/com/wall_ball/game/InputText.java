@@ -17,10 +17,11 @@ public class InputText extends ApplicationAdapter implements TextInputListener {
 
 
     @Override
-    public void create () {
+    public void create() {
         Gdx.input.getTextInput(this, "Push your record at record table", "", "Enter your name");
         notparsed = true;
     }
+
     public InputText(Ball game) {
 
         this.game = game;
@@ -28,11 +29,10 @@ public class InputText extends ApplicationAdapter implements TextInputListener {
     }
 
 
-
     @Override
     public void input(String text) {
 
-                    this.text = text;
+        this.text = text;
         notcanceled = true;
 
     }

@@ -23,7 +23,6 @@ public class WallBall implements Screen {
     OrthographicCamera camera;
 
 
-
     int counter = 0;
 
 
@@ -82,88 +81,82 @@ public class WallBall implements Screen {
     @Override
     public void render(float delta) {
 
-            Gdx.gl.glClearColor(0, 0, 0, 1);
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
-            camera.update();
-            batch.setProjectionMatrix(camera.combined);
-            batch.begin();
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
 
-            batch.draw(ball_img, ball_rect.x, ball_rect.y);
+        batch.draw(ball_img, ball_rect.x, ball_rect.y);
 
-            batch.draw(shorthorizontal_img, 38, 440);
-            batch.draw(shorthorizontal_img, 420, 440);
-            batch.draw(longvertical_img, 0, 0);
-            batch.draw(longvertical_img, 760, 0);
-            batch.draw(longhorizontal_img, 40, -5);
-            batch.draw(red_img, black_r.x, black_r.y);
-            batch.draw(ring_img, ring_r.x, ring_r.y);
-            game.font.draw(batch, "Total score: " + counter, 40, 440);
-            batch.end();
-
-
-            float x = Gdx.input.getPitch();
-
-            float y = Gdx.input.getRoll();
-
-            if (x < 0) {
-
-                ball_rect.x += Gdx.graphics.getDeltaTime() * 300;
-            } else {
-
-                ball_rect.x -= Gdx.graphics.getDeltaTime() * 300;
-            }
-
-            if (y > -40) {
-
-                ball_rect.y += Gdx.graphics.getDeltaTime() * 300;
-            } else {
-                ball_rect.y -= Gdx.graphics.getDeltaTime() * 300;
-            }
-
-            if (Gdx.input.isKeyPressed(Input.Keys.A))
-                ball_rect.x -= 200 * Gdx.graphics.getDeltaTime();
-            if (Gdx.input.isKeyPressed(Input.Keys.D))
-                ball_rect.x += 600 * Gdx.graphics.getDeltaTime();
-            if (Gdx.input.isKeyPressed(Input.Keys.W))
-                ball_rect.y += 200 * Gdx.graphics.getDeltaTime();
-            if (Gdx.input.isKeyPressed(Input.Keys.S))
-                ball_rect.y -= 600 * Gdx.graphics.getDeltaTime();
+        batch.draw(shorthorizontal_img, 38, 440);
+        batch.draw(shorthorizontal_img, 420, 440);
+        batch.draw(longvertical_img, 0, 0);
+        batch.draw(longvertical_img, 760, 0);
+        batch.draw(longhorizontal_img, 40, -5);
+        batch.draw(red_img, black_r.x, black_r.y);
+        batch.draw(ring_img, ring_r.x, ring_r.y);
+        game.font.draw(batch, "Total score: " + counter, 40, 440);
+        batch.end();
 
 
+        float x = Gdx.input.getPitch();
+
+        float y = Gdx.input.getRoll();
+
+        if (x < 0) {
+
+            ball_rect.x += Gdx.graphics.getDeltaTime() * 300;
+        } else {
+
+            ball_rect.x -= Gdx.graphics.getDeltaTime() * 300;
+        }
+
+        if (y > -40) {
+
+            ball_rect.y += Gdx.graphics.getDeltaTime() * 300;
+        } else {
+            ball_rect.y -= Gdx.graphics.getDeltaTime() * 300;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.A))
+            ball_rect.x -= 200 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.D))
+            ball_rect.x += 600 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.W))
+            ball_rect.y += 200 * Gdx.graphics.getDeltaTime();
+        if (Gdx.input.isKeyPressed(Input.Keys.S))
+            ball_rect.y -= 600 * Gdx.graphics.getDeltaTime();
 
 
-            if (ball_rect.x < 40) ball_rect.x = 40;
-            if (ball_rect.x > 700) ball_rect.x = 700;
-            if (ball_rect.y < 40) ball_rect.y = 40;
-            if (ball_rect.x < black_r.x - black_r.width / 2 || ball_rect.x > black_r.x + black_r.width / 2) {
-                if (ball_rect.y > 384) ball_rect.y = 384;
-            } else if (ball_rect.y > 384) {
+        if (ball_rect.x < 40) ball_rect.x = 40;
+        if (ball_rect.x > 700) ball_rect.x = 700;
+        if (ball_rect.y < 40) ball_rect.y = 40;
+        if (ball_rect.x < black_r.x - black_r.width / 2 || ball_rect.x > black_r.x + black_r.width / 2) {
+            if (ball_rect.y > 384) ball_rect.y = 384;
+        } else if (ball_rect.y > 384) {
 
-                game.ts = new InputText(game);
-                Gdx.app.log("i = ", Integer.toString(game.rs.i));
-                ball_rect.x = MathUtils.random(80, 700);
-                ball_rect.y = 0;
-                game.setScreen(game.rs);
+            game.ts = new InputText(game);
+            Gdx.app.log("i = ", Integer.toString(game.rs.i));
+            ball_rect.x = MathUtils.random(80, 700);
+            ball_rect.y = 0;
+            game.setScreen(game.rs);
 
-                game.ts.create();
-
-
+            game.ts.create();
 
 
-                dispose();
+            dispose();
 
-            }
-            if (ring_r.overlaps(ball_rect)) {
-                snd.play();
-                ring_r.x = MathUtils.random(80, 700);
-                ring_r.y = MathUtils.random(80, 400);
-                counter++;
+        }
+        if (ring_r.overlaps(ball_rect)) {
+            snd.play();
+            ring_r.x = MathUtils.random(80, 700);
+            ring_r.y = MathUtils.random(80, 400);
+            counter++;
 
-            }
-
-
+        }
 
 
     }
@@ -175,8 +168,6 @@ public class WallBall implements Screen {
 
     @Override
     public void pause() {
-
-
 
 
     }
@@ -193,7 +184,6 @@ public class WallBall implements Screen {
 
     @Override
     public void dispose() {
-
 
 
     }

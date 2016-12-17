@@ -14,7 +14,6 @@ public class RecordScreen implements Screen {
     String s, username;
     OrthographicCamera camera;
     int i;
-
     Array<String> records = new Array<String>();
 
     public RecordScreen(Ball game) {
@@ -27,7 +26,6 @@ public class RecordScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
     @Override
@@ -50,18 +48,19 @@ public class RecordScreen implements Screen {
         if (game.ts.notparsed && game.ts.notcanceled) {
             username = game.ts.text;
             s = username + " : " + game.wb.counter;
-            records.add(s);
+            //records.add(s);
 
+            insertToDatabase(s);
 
             game.ts.notparsed = false;
+
+            readFromDatabase();
         }
 
         for (String record : records) {
             game.font.draw(game.batch, record, 300, i);
-            i-=20;
+            i -= 20;
         }
-
-
 
 
         game.batch.end();
@@ -72,7 +71,6 @@ public class RecordScreen implements Screen {
 
 
         }
-
     }
 
     @Override
@@ -98,5 +96,21 @@ public class RecordScreen implements Screen {
     @Override
     public void dispose() {
 
+    }
+
+    public void insertToDatabase(String score) {
+
+        DataBase db = new DataBase();
+        db.create();
+        db.insert(s);
+        db.close();
+    }
+
+    public void readFromDatabase() {
+        records.clear();
+        DataBase db = new DataBase();
+        db.create();
+        db.read(records);
+        db.close();
     }
 }
