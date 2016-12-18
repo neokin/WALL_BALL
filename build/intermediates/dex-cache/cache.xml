@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/kaliuser/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.4/4b4b7962d1bc75af0438f5c81ec1010557bc9ee5/gdx-1.9.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4b4b7962d1bc75af0438f5c81ec1010557bc9ee5">
+        <dex dex="/home/kaliuser/Документы/app/WallBall/android/build/intermediates/pre-dexed/debug/gdx-1.9.4_e646c3ac05ba216f495f23775c9cfeb04de67376.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/kaliuser/Документы/app/WallBall/android/libs/gdx-sqlite-android.jar"
         jumboMode="false"
         optimize="true"
@@ -45,15 +54,6 @@
         revision="25.0.0"
         sha1="194b33382d6d58fad031521ba3331d926c476c9b">
         <dex dex="/home/kaliuser/Документы/app/WallBall/android/build/intermediates/pre-dexed/debug/gdx-backend-android-1.9.4_75a30d674f71236ba6307f6d38974738e060ea59.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kaliuser/Документы/app/WallBall/android/libs/gdx-backend-android.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6b47c87d4eb6c87a8b24cfbe30272e3b2b1d7ef1">
-        <dex dex="/home/kaliuser/Документы/app/WallBall/android/build/intermediates/pre-dexed/debug/gdx-backend-android_5a6f5aac279521ff6d32f28c6c1c82b78d7f5945.jar" />
     </item>
 
 </items>

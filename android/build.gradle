@@ -103,6 +103,8 @@ eclipse {
         buildCommand "org.eclipse.jdt.core.javabuilder"
         buildCommand "com.android.ide.eclipse.adt.ApkBuilder"
     }
+
+
 }
 
 // sets up the Android Idea project, using the old Ant based build.
@@ -129,5 +131,7 @@ idea {
 }
 
 dependencies {
-    compile fileTree(dir: "libs", include: ['*.jar'])
+    compile fileTree(dir: "libs", include: ['gdx-sqlite-android.jar'])
+    compile fileTree(dir: "libs", include: ['gdx-sqlite.jar'])
 }
+
